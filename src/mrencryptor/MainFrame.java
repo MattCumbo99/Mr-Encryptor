@@ -38,17 +38,89 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblINOP = new javax.swing.JLabel();
+        lblOUTPUT = new javax.swing.JLabel();
+        btnEnter = new javax.swing.JButton();
+        INOP = new javax.swing.JComboBox<>();
+        outputScroller = new javax.swing.JScrollPane();
+        OUTPUT = new javax.swing.JTextArea();
+        invalueScroller = new javax.swing.JScrollPane();
+        INVALUE = new javax.swing.JTextArea();
+        lblINVALUE = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Mr. Encryptor");
+        setResizable(false);
+
+        lblINOP.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblINOP.setText("INOP:");
+
+        lblOUTPUT.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblOUTPUT.setText("OUTPUT:");
+
+        btnEnter.setText("Enter");
+
+        INOP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Encrypt", "Decrypt" }));
+
+        OUTPUT.setEditable(false);
+        OUTPUT.setColumns(20);
+        OUTPUT.setFont(new java.awt.Font("Courier New", 0, 13)); // NOI18N
+        OUTPUT.setRows(5);
+        outputScroller.setViewportView(OUTPUT);
+
+        INVALUE.setColumns(20);
+        INVALUE.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        INVALUE.setRows(5);
+        INVALUE.setText("Enter text here");
+        invalueScroller.setViewportView(INVALUE);
+
+        lblINVALUE.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblINVALUE.setText("INVALUE:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(lblINVALUE, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(invalueScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(lblINOP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(INOP, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(250, 250, 250)
+                        .addComponent(btnEnter))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(lblOUTPUT, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(outputScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblINVALUE, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(invalueScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblINOP, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(INOP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnEnter)
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblOUTPUT, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(outputScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -90,5 +162,14 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> INOP;
+    private javax.swing.JTextArea INVALUE;
+    private javax.swing.JTextArea OUTPUT;
+    private javax.swing.JButton btnEnter;
+    private javax.swing.JScrollPane invalueScroller;
+    private javax.swing.JLabel lblINOP;
+    private javax.swing.JLabel lblINVALUE;
+    private javax.swing.JLabel lblOUTPUT;
+    private javax.swing.JScrollPane outputScroller;
     // End of variables declaration//GEN-END:variables
 }
