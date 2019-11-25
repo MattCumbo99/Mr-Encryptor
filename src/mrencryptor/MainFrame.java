@@ -72,6 +72,11 @@ public class MainFrame extends javax.swing.JFrame {
         INVALUE.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         INVALUE.setRows(5);
         INVALUE.setText("Enter text here");
+        INVALUE.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                INVALUEFocusGained(evt);
+            }
+        });
         invalueScroller.setViewportView(INVALUE);
 
         lblINVALUE.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -125,6 +130,15 @@ public class MainFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    /**
+     * Selects all the text in the INVALUE text area
+     * when the user focuses it.
+     * @author Matthew Cumbo
+     */
+    private void INVALUEFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_INVALUEFocusGained
+        INVALUE.selectAll();
+    }//GEN-LAST:event_INVALUEFocusGained
 
     /**
      * @param args the command line arguments
