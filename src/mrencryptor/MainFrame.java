@@ -16,15 +16,18 @@
  */
 package mrencryptor;
 
+import java.awt.Color;
+import java.awt.Font;
+
 /**
  *
  * @author Matthew Cumbo & Hunter Jasinski
  */
 public class MainFrame extends javax.swing.JFrame {
-
-    /**
-     * Creates new form MainFrame
-     */
+    
+    private boolean invalueEmpty = true; // Used for checking if INVALUE is empty.
+    
+    // Creates new form MainFrame
     public MainFrame() {
         initComponents();
     }
@@ -59,8 +62,15 @@ public class MainFrame extends javax.swing.JFrame {
         lblOUTPUT.setText("OUTPUT:");
 
         btnEnter.setText("Enter");
+        btnEnter.setEnabled(false);
+        btnEnter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnterActionPerformed(evt);
+            }
+        });
 
         INOP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Encrypt", "Decrypt" }));
+        INOP.setNextFocusableComponent(btnEnter);
 
         OUTPUT.setEditable(false);
         OUTPUT.setColumns(20);
@@ -69,12 +79,25 @@ public class MainFrame extends javax.swing.JFrame {
         outputScroller.setViewportView(OUTPUT);
 
         INVALUE.setColumns(20);
-        INVALUE.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        INVALUE.setFont(new java.awt.Font("Courier New", 2, 14)); // NOI18N
+        INVALUE.setForeground(java.awt.Color.gray);
         INVALUE.setRows(5);
         INVALUE.setText("Enter text here");
+        INVALUE.setNextFocusableComponent(INOP);
         INVALUE.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 INVALUEFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                INVALUEFocusLost(evt);
+            }
+        });
+        INVALUE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                INVALUEKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                INVALUEKeyReleased(evt);
             }
         });
         invalueScroller.setViewportView(INVALUE);
@@ -131,14 +154,52 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * Selects all the text in the INVALUE text area
-     * when the user focuses it.
-     * @author Matthew Cumbo
-     */
     private void INVALUEFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_INVALUEFocusGained
-        INVALUE.selectAll();
+        if(invalueEmpty){
+            INVALUE.setText("");
+            INVALUE.setFont(new Font("Courier New", Font.PLAIN, 14));
+            INVALUE.setForeground(Color.black);
+        }
+        else{
+            INVALUE.selectAll();
+        }  
     }//GEN-LAST:event_INVALUEFocusGained
+
+    private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
+        OUTPUT.setText(INVALUE.getText() + "\n" + INOP.getSelectedItem().toString());
+    }//GEN-LAST:event_btnEnterActionPerformed
+
+    private void INVALUEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_INVALUEKeyReleased
+        OUTPUT.setText("");
+        if(INVALUE.getText().equals("")){
+            btnEnter.setEnabled(false);
+            invalueEmpty = true;
+        }
+        else{
+            btnEnter.setEnabled(true);
+            invalueEmpty = false;
+        }
+    }//GEN-LAST:event_INVALUEKeyReleased
+
+    private void INVALUEFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_INVALUEFocusLost
+        if(invalueEmpty){
+            INVALUE.setText("Enter text here");
+            INVALUE.setFont(new Font("Courier New", Font.ITALIC, 14));
+            INVALUE.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_INVALUEFocusLost
+
+    private void INVALUEKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_INVALUEKeyPressed
+        OUTPUT.setText("");
+        if(INVALUE.getText().equals("")){
+            btnEnter.setEnabled(false);
+            invalueEmpty = true;
+        }
+        else{
+            btnEnter.setEnabled(true);
+            invalueEmpty = false;
+        }
+    }//GEN-LAST:event_INVALUEKeyPressed
 
     /**
      * @param args the command line arguments
