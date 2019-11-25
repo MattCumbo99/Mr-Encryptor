@@ -27,6 +27,22 @@ public class MainFrame extends javax.swing.JFrame {
     
     private boolean invalueEmpty = true; // Used for checking if INVALUE is empty.
     
+    /**
+     * Encrypts the string in INVALUE and puts the result in
+     * OUTPUT.
+     */
+    private void encrypt(){
+        
+    }
+    
+    /**
+     * Decrypts the encrypted text in INVALUE and shows the
+     * result string in OUTPUT.
+     */
+    private void decrypt(){
+        
+    }
+    
     // Creates new form MainFrame
     public MainFrame() {
         initComponents();
@@ -166,7 +182,12 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_INVALUEFocusGained
 
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
-        OUTPUT.setText(INVALUE.getText() + "\n" + INOP.getSelectedItem().toString());
+        if(INOP.getSelectedItem().toString().equals("Encrypt")){
+            encrypt();
+        }
+        else{
+            decrypt();
+        }
     }//GEN-LAST:event_btnEnterActionPerformed
 
     private void INVALUEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_INVALUEKeyReleased
