@@ -26,21 +26,25 @@ import java.awt.Font;
 public class MainFrame extends javax.swing.JFrame {
     
     private boolean invalueEmpty = true; // Used for checking if INVALUE is empty.
+    private final String KEY = "MChaffee@HTPD162"; // Key used for AES256
     
     /**
-     * Encrypts the string in INVALUE and puts the result in
-     * OUTPUT.
+     * Encrypts a string to AES256 encryption.
+     * @param str String to encrypt.
+     * @return Encrypted text.
      */
-    private void encrypt(){
-        
+    protected String encrypt(String str){
+        return str;
     }
     
     /**
-     * Decrypts the encrypted text in INVALUE and shows the
-     * result string in OUTPUT.
+     * Decrypts a string in AES256 to regular
+     * text.
+     * @param str String to decipher.
+     * @return Deciphered text.
      */
-    private void decrypt(){
-        
+    protected String decrypt(String str){
+        return str;
     }
     
     // Creates new form MainFrame
@@ -183,10 +187,10 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
         if(INOP.getSelectedItem().toString().equals("Encrypt")){
-            encrypt();
+            OUTPUT.setText(encrypt(INVALUE.getText()));
         }
         else{
-            decrypt();
+            OUTPUT.setText(decrypt(INVALUE.getText()));
         }
     }//GEN-LAST:event_btnEnterActionPerformed
 
