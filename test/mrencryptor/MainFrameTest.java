@@ -29,6 +29,8 @@ import static org.junit.Assert.*;
  */
 public class MainFrameTest {
     
+    private MainFrame m;
+    
     public MainFrameTest() {
     }
     
@@ -42,32 +44,40 @@ public class MainFrameTest {
     
     @Before
     public void setUp() {
+        m = new MainFrame();
     }
     
     @After
     public void tearDown() {
     }
-
-    /**
-     * Test of main method, of class MainFrame.
-     */
-    @Test
-    public void testMain() {
-        System.out.println("main");
-        String[] args = null;
-        MainFrame.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
     
     @Test
-    public void testEncrypt(){
-        MainFrame m = new MainFrame();
-        System.out.println("encrypt test 1 - Hello world!");
+    public void testEncrypt1(){
         assertEquals("+Phd/EbSanKDh3vwBdjj6g==", m.encrypt("Hello world!"));
-        String tes = "Fire away\nFire away";
-        System.out.println("encrypt test 2 - " + tes);
-        assertEquals("CI+OLWuckX8aAOF/4lKGBkY2TSeeyGqgTt0VC46plOs=", m.encrypt(tes));
     }
     
+    @Test
+    public void testEncrypt2(){
+        assertEquals("8R8EeAk+s8rsmoR9aMcbe0Y2TSeeyGqgTt0VC46plOs=", m.encrypt("Fire away Fire away"));
+    }
+    
+    @Test
+    public void testEncrypt3(){
+        assertEquals("RBR77jJ/6MQEYh+MYUED1A==", m.encrypt("(3+3)=7?"));
+    }
+    
+    @Test
+    public void testDecrypt1(){
+        assertEquals("Send the email.", m.decrypt("25zWuhz4J6vScA+K9kbEcg=="));
+    }
+    
+    @Test
+    public void testDecrypt2(){
+        assertEquals("This test has passed", m.decrypt("hQV4mB3BBtK2Enb5g+X3bkjmfvlCu8maH3oCsi7/JuY="));
+    }
+    
+    @Test
+    public void testDecrypt3(){
+        assertEquals("(3+3)=6!", m.decrypt("dWwk4UO7zsgAXabtweX+Sg=="));
+    }
 }
