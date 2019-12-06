@@ -56,7 +56,7 @@ public class MainFrame extends javax.swing.JFrame {
             cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivspec);
             return Base64.getEncoder().encodeToString(cipher.doFinal(str.getBytes("UTF-8")));
         } 
-        catch (Exception e){
+        catch(Exception e){
             System.out.println("Error while encrypting: " + e.toString());
         }
         return null;
