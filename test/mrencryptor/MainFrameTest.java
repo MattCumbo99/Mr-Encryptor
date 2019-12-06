@@ -53,31 +53,31 @@ public class MainFrameTest {
     
     @Test
     public void testEncrypt1(){
-        assertEquals("+Phd/EbSanKDh3vwBdjj6g==", m.encrypt("Hello world!"));
+        assertEquals("hQL3Lw8NmyoeOibqbfTlOQ==", m.encrypt("Hello world!"));
     }
     
     @Test
     public void testEncrypt2(){
-        assertEquals("8R8EeAk+s8rsmoR9aMcbe0Y2TSeeyGqgTt0VC46plOs=", m.encrypt("Fire away Fire away"));
+        assertEquals("m9GT+cYmznVH9wjgDZz3v0YZ5AhOq+KRSPEj1i5b/uI=", m.encrypt("Fire away Fire away"));
     }
     
     @Test
     public void testEncrypt3(){
-        assertEquals("RBR77jJ/6MQEYh+MYUED1A==", m.encrypt("(3+3)=7?"));
+        assertEquals("y9kex6FsYD2aKt43tdPSbw==", m.encrypt("(3+3)=7?"));
     }
     
     @Test
     public void testDecrypt1(){
-        assertEquals("Send the email.", m.decrypt("25zWuhz4J6vScA+K9kbEcg=="));
+        assertEquals("Send the email.", m.decrypt("961sJZ+W+WSKEkcuM+UvzA=="));
     }
     
     @Test
     public void testDecrypt2(){
-        assertEquals("This test has passed", m.decrypt("hQV4mB3BBtK2Enb5g+X3bkjmfvlCu8maH3oCsi7/JuY="));
+        assertEquals("This test has passed", m.decrypt("zcyJlFVNmKExlLnfF6pVerrc6zY+LUP4alWP7F7c8FE="));
     }
     
     @Test
     public void testDecrypt3(){
-        assertEquals("(3+3)=6!", m.decrypt("dWwk4UO7zsgAXabtweX+Sg=="));
+        assertEquals("(3+3)=6!", m.decrypt("0HGtic5xkCPlzO32Zhs7Wg=="));
     }
 }
